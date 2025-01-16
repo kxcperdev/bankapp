@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a16c911-a3ff-4ad1-a22b-36525c21877c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/load_balancer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/assignment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/encryption.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/responses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/accounts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/security.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/security.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bank.db" beforeDir="false" afterPath="$PROJECT_DIR$/bank.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +80,8 @@
       <workItem from="1736937669622" duration="222000" />
       <workItem from="1736937902811" duration="276000" />
       <workItem from="1736938189795" duration="12469000" />
-      <workItem from="1736951707593" duration="416000" />
+      <workItem from="1736951707593" duration="659000" />
+      <workItem from="1737031460059" duration="846000" />
     </task>
     <servers />
   </component>
@@ -100,6 +90,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/backend_bankowy$users.coverage" NAME="users Coverage Results" MODIFIED="1736913828997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/routes" />
-    <SUITE FILE_PATH="coverage/backend_bankowy$main.coverage" NAME="main Coverage Results" MODIFIED="1736951447229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend_bankowy$main.coverage" NAME="main Coverage Results" MODIFIED="1737031475988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

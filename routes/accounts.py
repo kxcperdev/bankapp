@@ -212,5 +212,82 @@ def get_account_logs(
 
     return success_response(logs, "Logs retrieved successfully")
 
+# ---------------------------
+# Przelew oczekujący
+# ---------------------------
+@router.post("/transfer/pending")
+def create_pending_transfer(
+    from_account_id: int,
+    to_account_id: int,
+    amount: int,
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(database.get_db)
+):
+    """
+    Tworzy przelew oczekujący na zatwierdzenie.
+    """
+    if amount <= 0:
+        return error_response("Transfer amount must be greater than zero", 400)
+
+    from_account = crud.get_account(db, from_account_id)
+    to_account = crud.get_account(db, to_account_id)
+
+    if not from_account or from_account.owner_id != current_user.id:
+        return error_response("Source account not found or access denied", 403)
+    if not to_account:
+        return error_response("Destination account not found", 404)
+    if from_account.balance < amount:
+        return error_response("Insufficient funds", 400)
+
+    # Dodanie logu dla przelewu oczekującego
+    crud.log_operation(
+        db,
+        account_id=from_account_id,
+        operation="pending_transfer",
+        details=f"Pending transfer of {amount} to account {to_account_id}"
+    )
+
+    return success_response({}, "Pending transfer created successfully")
+
+# ---------------------------
+# Przelew cykliczny
+# ---------------------------
+@router.post("/transfer/recurring")
+def create_recurring_transfer(
+    from_account_id: int,
+    to_account_id: int,
+    amount: int,
+    frequency: str,
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(database.get_db)
+):
+    """
+    Tworzy przelew cykliczny z określoną częstotliwością.
+    """
+    if amount <= 0:
+        return error_response("Transfer amount must be greater than zero", 400)
+    if frequency not in ["daily", "weekly", "monthly"]:
+        return error_response("Invalid frequency. Use 'daily', 'weekly', or 'monthly'", 400)
+
+    from_account = crud.get_account(db, from_account_id)
+    to_account = crud.get_account(db, to_account_id)
+
+    if not from_account or from_account.owner_id != current_user.id:
+        return error_response("Source account not found or access denied", 403)
+    if not to_account:
+        return error_response("Destination account not found", 404)
+    if from_account.balance < amount:
+        return error_response("Insufficient funds", 400)
+
+    # Dodanie logu dla przelewu cyklicznego
+    crud.log_operation(
+        db,
+        account_id=from_account_id,
+        operation="recurring_transfer",
+        details=f"Recurring transfer of {amount} to account {to_account_id} with frequency {frequency}"
+    )
+
+    return success_response({}, "Recurring transfer created successfully")
+
 
 
